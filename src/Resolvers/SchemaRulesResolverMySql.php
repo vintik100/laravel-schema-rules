@@ -144,6 +144,11 @@ class SchemaRulesResolverMySql extends BaseSchemaRulesResolver implements Schema
                 break;
         }
 
+        if($column->Key=='UNI'){
+            $columnRules[] = 'unique:'.$this->table().','.$this->getField($column);
+        }
+
+
         return $columnRules;
     }
 
